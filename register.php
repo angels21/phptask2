@@ -1,7 +1,6 @@
 <?php include_once('lib/header.php');
 //if a session is logged in and you dont want to be sent back to the login page v21 redirect to dashboard/
-if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
-    header("Location: internsdashboard.php");
+
 if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
     header("Location: dashboard.php");
 }

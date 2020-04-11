@@ -30,12 +30,12 @@ if($errorCount > 0){
 }else{
     $allUsers = scandir("db/users/");
     $countAllUsers = count($allUsers);
-    //just added
+    //added for login log
     $logUsers = scandir("db/log/"); //return @array (2 filled)
     $countlogUsers = count($logUsers);
     $logId = ($countlogUsers-1);
     $logObject = [
-//
+//added for login log
         'id'=>$logId,
         'login_date'=>$login_date,
         'email'=>$email,
@@ -58,7 +58,7 @@ if($errorCount > 0){
                 $_SESSION ["department"] = $userObject -> department;
                 $_SESSION ["designation"] = $userObject -> designation;
                 $_SESSION ["reg_date"] = $userObject -> reg_date;
-                //adding user log record
+                //adding user log record to database
                 file_put_contents("db/log/". $email . ".json", json_encode($logObject));
                 
                 //Page redirect based on Access Level

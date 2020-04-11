@@ -16,6 +16,6 @@ if(!isset($_SESSION['loggedIn'])){
     AccessLevel:
 <?php echo $_SESSION["designation"]; ?>
     Date of Last login:
-<?php echo $_SESSION["reg_date"]; ?>
+<?php echo $_SESSION["login_date"]; ?>
 
 <?php include_once('lib/footer.php'); ?>

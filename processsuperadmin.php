@@ -33,7 +33,7 @@ if($errorCount > 0){
     }
     $session_error .=  " in your form submission";
     $_SESSION["error"] = $session_error;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 
 }else{
 
@@ -65,7 +65,7 @@ if($errorCount > 0){
     
         if($currentUser == $email . ".json"){
             $_SESSION["error"] = "Registration Failed, User already exits ";
-            header("Location: register.php");
+            header("Location: superadmin.php");
             die();
         }
     }
@@ -74,9 +74,10 @@ if($errorCount > 0){
 
     file_put_contents("db/users/". $email . ".json", json_encode($userObject));
 
-    $_SESSION["message"] = "Registration Successful, you can now login " . $first_name;
+    $_SESSION["message"] = "Registration Successful. Refresh the page and to another user ";
 
-    header("Location: login.php");
+    header("Location: superadmin.php");
+    die();
 
 }
 //Validating email entry additional
@@ -84,29 +85,28 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
   echo("$email is a valid email address");
 } else {
   $_SESSION["error"] = "Invalid Email address" ;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 if (strlen($email) < 5){
     $_SESSION["error"] = "email must have more than 5 characters";
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 
 // validate first name additional
 if (!preg_match("/^[a-zA-Z ]*$/",$first_name)) {
   $_SESSION["error"] = "For names Only letters and white space allowed" ;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 if (strlen($first_name) < 3){
     $_SESSION["error"] = "Firstname must have more than 2 characters";
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 
 // validate last name additional
 if (!preg_match("/^[a-zA-Z ]*$/",$last_name)) {
   $_SESSION["error"] = "For names Only letters and white space allowed" ;
-  header("Location: register.php");}
+  header("Location: superadmin.php");}
 if (strlen($last_name) < 3){
     $_SESSION["error"] = "lastname must have more than 2 characters";
-    header("Location: register.php");}
+    header("Location: superadmin.php");}
   ?>
-

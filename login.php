@@ -2,12 +2,10 @@
  
  if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
     header("Location: dashboard.php");
+    if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
+        header("Location: interndashboard.php");
 }
-
-
-
 ?>
-
 
 <h3>Login</>
     <p>

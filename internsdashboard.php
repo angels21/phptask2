@@ -18,4 +18,18 @@ if(!isset($_SESSION['loggedIn'])){
     Date of Last login:
 <?php echo $_SESSION["login_date"]; ?>
 
+
+    
+
+        <a href="paybill.php">Pay Bill</a> |
+        <a href="bookappointment.php">Book Appointment</a> |
+        
+        
+        
+        
+   
+
 <?php include_once('lib/footer.php'); ?>
+
+<a href="paybill.php">Pay Bill</a> |
+<a href="bookappointment.php">Book Appointment</a> |

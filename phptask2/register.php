@@ -1,6 +1,5 @@
 <?php include_once('lib/header.php');
 //if a session is logged in and you dont want to be sent back to the login page v21 redirect to dashboard/
-require_once('functions/alert.php');
 
 if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
     header("Location: dashboard.php");
@@ -12,10 +11,15 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
     <p><strong>Welcome, Please register</strong></p>
     <p>All fields are required</p>
 
-
     <form method="POST" action="processregister.php">
     <p>
-        <?php print_alert();  ?>
+        <?php
+            if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
+                echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";
+//unsets session message on page refresh
+                session_destroy();
+            }
+        ?>
     </p>
 
     </p>
@@ -110,7 +114,7 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
         </p>
         <p>
             <button type="submit">Register</button>
-        </p>
+
     </form>
 
 <?php include_once('lib/footer.php'); ?>

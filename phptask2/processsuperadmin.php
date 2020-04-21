@@ -1,5 +1,4 @@
 <?php session_start();
-    require_once('functions/user.php');
 //Collecting the data
 date_default_timezone_set('Africa/Lagos');
 
@@ -34,11 +33,12 @@ if($errorCount > 0){
     }
     $session_error .=  " in your form submission";
     $_SESSION["error"] = $session_error;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 
 }else{
 
-    
+    $allUsers = scandir("db/users/"); //return @array (2 filled)
+    $countAllUsers = count($allUsers);
     $newUserId = ($countAllUsers-1);
     $userObject = [
 
@@ -53,21 +53,31 @@ if($errorCount > 0){
         'reg_date' => $date
 
     ];
+
+
+
     //Check if the user already exists.
-    $userExists = find_user($email);
+
  
+
+    for ($counter = 0; $counter < $countAllUsers ; $counter++) {
+        $currentUser = $allUsers[$counter];
     
-        if($userExists){
+        if($currentUser == $email . ".json"){
             $_SESSION["error"] = "Registration Failed, User already exits ";
-            header("Location: register.php");
+            header("Location: superadmin.php");
             die();
         }
-    
+    }
 
     //save in the database;
-    save_user($userObject);
-    $_SESSION["message"] = "Registration Successful, you can now login " . $first_name;
-    header("Location: login.php");
+
+    file_put_contents("db/users/". $email . ".json", json_encode($userObject));
+
+    $_SESSION["message"] = "Registration Successful. Refresh the page and to another user ";
+
+    header("Location: superadmin.php");
+    die();
 
 }
 //Validating email entry additional
@@ -75,31 +85,28 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
   echo("$email is a valid email address");
 } else {
   $_SESSION["error"] = "Invalid Email address" ;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 if (strlen($email) < 5){
     $_SESSION["error"] = "email must have more than 5 characters";
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 
 // validate first name additional
 if (!preg_match("/^[a-zA-Z ]*$/",$first_name)) {
   $_SESSION["error"] = "For names Only letters and white space allowed" ;
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 if (strlen($first_name) < 3){
     $_SESSION["error"] = "Firstname must have more than 2 characters";
-    header("Location: register.php");
+    header("Location: superadmin.php");
 }
 
 // validate last name additional
 if (!preg_match("/^[a-zA-Z ]*$/",$last_name)) {
   $_SESSION["error"] = "For names Only letters and white space allowed" ;
-  header("Location: register.php");
-}
+  header("Location: superadmin.php");}
 if (strlen($last_name) < 3){
     $_SESSION["error"] = "lastname must have more than 2 characters";
-    header("Location: register.php");
-}
+    header("Location: superadmin.php");}
   ?>
-

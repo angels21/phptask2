@@ -8,7 +8,7 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
 
 //include_once('lib/header.php'); 
 ?>
-<h3>Register</>
+<h3>Register</h3>
     <p><strong>Welcome, Please register</strong></p>
     <p>All fields are required</p>
 

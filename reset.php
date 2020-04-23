@@ -1,6 +1,8 @@
 <?php include_once('lib/header.php'); 
     require_once('functions/alert.php');
     require_once('functions/user.php');
+    require_once('functions/email.php');
+    require_once('functions/token.php');
 
 //if token is set not set, user shouldnt access reset page
 

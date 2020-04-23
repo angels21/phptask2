@@ -8,10 +8,10 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
 
 //include_once('lib/header.php'); 
 ?>
-<h3>
+<h3> Appointment </h3>
     <p><strong>Book appointment to resolve issue with your account or to have a session a representative</strong></p>
     <p>All fields are required</p>
-
+<body>
     <form method="POST" action="processbookappointment.php">
     <p>
         <?php
@@ -125,7 +125,7 @@ echo date('Y-m-d');?>" />
         
         <p>
             <button type="submit">Book Appointment</button>
-
+            </body>
     </form>
 
 <?php include_once('lib/footer.php'); ?>

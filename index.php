@@ -1,4 +1,5 @@
-<?php include_once('lib/header.php'); ?>
+<?php include_once('lib/header.php'); require_once('functions/alert.php');?>
+
     <p>
 
             <?php print_alert();  ?>

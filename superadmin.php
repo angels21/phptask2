@@ -8,10 +8,10 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
 
 //include_once('lib/header.php'); 
 ?>
-<h3>Register</>
+<h3>Register</h3>
     <p><strong>Welcome MR SUPERADMIN, You can register new users here</strong></p>
     <p>All fields are required</p>
-
+<body>
     <form method="POST" action="processsuperadmin.php">
     <p>
         <?php
@@ -123,7 +123,7 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
         
  </Br>       
              
-
+            </body>
     </form>
 
 <?php include_once('lib/footer.php'); ?>

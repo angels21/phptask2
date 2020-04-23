@@ -2,12 +2,14 @@
     require_once('functions/user.php');
     require_once('functions/alert.php');
     require_once('functions/redirect.php');
+    require_once('functions/email.php');
+    require_once('functions/token.php');
 //Collecting the data
 
 
 $errorCount = 0;
 
-if(!is_user_LoggedIn()){
+if(!$_SESSION['loggedIn']){//undone today from !is_user_LoggedIn()
     $token = $_POST['token'] != "" ? $_POST['token'] :  $errorCount++;
     $_SESSION['token'] = $token;
 }

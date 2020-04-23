@@ -18,7 +18,7 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
                 <td>$userpatient->department</td>
             </tr>
             ";
-      }
+        }
     }
     return $patient;
     }

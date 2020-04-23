@@ -6,7 +6,6 @@ function send_mail(
     $subject = "",
     $message = "",
     $email =""
-
     ){
 
     $headers = "From: no-reply@snh.org" . "\r\n" .

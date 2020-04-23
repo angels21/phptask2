@@ -1,5 +1,5 @@
 <?php
 function redirect_to($url = ""){
 
-    header("Location: .$url");
+    header("Location: " .$url);
 }

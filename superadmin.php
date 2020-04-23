@@ -116,6 +116,14 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
         <p>
             <button type="submit">Register</button>
 
+            <Br>    
+
+                <a href="allinterns.php">View all interns</a> |
+                <a href="allrepresentatives.php">View all representatives</a> 
+        
+ </Br>       
+             
+
     </form>
 
 <?php include_once('lib/footer.php'); ?>

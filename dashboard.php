@@ -19,5 +19,24 @@ Department:
 (<?php echo $_SESSION["designation"]; ?>), 
     Date of Last login:
 <?php echo $_SESSION["login_date"]; ?>, 
+<Br>
+<?php
+function getDirContents($dir, &$results = array()) {
+    $files = scandir($dir);
+
+    foreach ($files as $key => $value) {
+        $path = realpath($dir . DIRECTORY_SEPARATOR . $value);
+        if (!is_dir($path)) {
+            $results[] = $path;
+        } else if ($value != "." && $value != "..") {
+            getDirContents($path, $results);
+            $results[] = $path;
+        }
+    }
+
+    return $results;
+}
+?>
+ 
 
 <?php include_once('lib/footer.php'); ?>

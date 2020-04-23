@@ -3,10 +3,7 @@
 date_default_timezone_set('Africa/Lagos');
 //added to test user log for time
 $login_date = date("Y-m-d, h:i:sa");
-
 $errorCount = 0;
-
-
 
 $email = $_POST['email'] != "" ? $_POST['email'] :  $errorCount++;
 $password = $_POST['password'] != "" ? $_POST['password'] :  $errorCount++;
@@ -24,8 +21,6 @@ if($errorCount > 0){
     $session_error .=  " in your form submission";
     $_SESSION["error"] = $session_error;
     header("Location: login.php");
-
- 
 
 }else{
     $allUsers = scandir("db/users/");
@@ -50,8 +45,7 @@ if($errorCount > 0){
             $passwordFromDB =$userObject->password;
            
             $passwordFromUser = password_verify($password, $passwordFromDB);
-            //ensure session is logged in vid 21
-           
+            //ensure session is logged in vid 21          
            if($passwordFromDB == $passwordFromUser){
                 $_SESSION ["loggedIn"] = $userObject -> id;
                 $_SESSION ["fullname"] = $userObject -> first_name . " " . $userObject -> last_name;
@@ -71,8 +65,7 @@ if($errorCount > 0){
                     }
             }
                die();
-               
-            
+
         }
         
     }

@@ -19,17 +19,14 @@ if(!isset($_SESSION['loggedIn'])){
 <?php echo $_SESSION["login_date"]; ?>
 
 
-    
+<Br>    
 
-        <a href="paybill.php">Pay Bill</a> |
-        <a href="bookappointment.php">Book Appointment</a> |
+<a href="paybill.php">Pay Bill</a> |
+<a href="bookappointment.php">Book Appointment</a> 
         
-        
+ </Br>       
         
         
    
 
 <?php include_once('lib/footer.php'); ?>
-
-<a href="paybill.php">Pay Bill</a> |
-<a href="bookappointment.php">Book Appointment</a> |

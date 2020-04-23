@@ -72,7 +72,7 @@ if($errorCount > 0){
 
     $_SESSION["message"] = "Appointment has been booked successfully. We will be expecting you ";
 
-    header("Location: internsdashboard.php");
+    header("Location: bookappointment.php");
     die();
 
 }

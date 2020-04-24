@@ -17,15 +17,15 @@ if(!is_user_LoggedIn() && !is_token_set()){
     <h3>Reset Password</h3>
     <p>Reset Password associated with your account : [email]</p>
 
-    <form action="processreset.php" method="POST">
+    <form action="processreset1.php" method="POST">
     <p>
         <?php   print_alert();     ?>
     </p>
-    <?php if(!is_user_LoggedIn()) { ?>
+    <?php if(!is_user_LoggedIn()){ ?>
     <input 
         <?php
             if(is_token_set_in_session()){
-                echo "value='" . $SESSION['token'] . "'";
+                echo "value='" . $_SESSION['token'] . "'";
             }else{
 
                 echo "value='" . $_GET['token'] . "'";
@@ -40,7 +40,7 @@ if(!is_user_LoggedIn() && !is_token_set()){
             <input 
                 <?php
                     if(isset($_SESSION['email'])){
-                        echo "value" . $_SESSION['email'];
+                        echo "value=" . $_SESSION['email'];
                     }
                 ?>
                         type="text" name="email" placeholder="Email address" 

@@ -15,7 +15,7 @@ function generate_token(){
     return $token;
 }
 
-function find_token($email = ''){
+function find_token($email=''){
     $allUserTokens = scandir("db/token/"); //return @array (2 filled)
     $countAllUserTokens = count($allUserTokens);
 

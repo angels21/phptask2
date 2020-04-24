@@ -52,6 +52,7 @@ if($errorCount > 0){
                 $_SESSION ["department"] = $userObject -> department;
                 $_SESSION ["designation"] = $userObject -> designation;
                 $_SESSION ["reg_date"] = $userObject -> reg_date;
+                $_SESSION ["email"] = $userObject -> email; //added last day
                 //adding user log record to database
                 file_put_contents("db/log/". $email . ".json", json_encode($logObject));
                 
@@ -62,9 +63,10 @@ if($errorCount > 0){
                     header("Location: internsdashboard.php");
                     }else{
                         header("Location:dashboard.php");
-                    }
+                        die();
+                   }
             }
-               die();
+               
 
         }
         

@@ -58,7 +58,7 @@ if($errorCount > 0){
  
     
         if($userExists){
-            $_SESSION["error"] = "Registration Failed, User already exits ";
+            $_SESSION["error"] = "Registration Failed, User already exist ";
             header("Location: register.php");
             die();
         }

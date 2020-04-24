@@ -1,7 +1,7 @@
 <?php include_once('alert.php');
 
 function is_user_LoggedIn(){
-    if($_SESSION['loggedIn'] && !empty($_SESSION['loggedIn'])) {
+    if(isset($_SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])) {
         return true;
     }
     return false;
@@ -25,8 +25,8 @@ function is_token_set_in_get(){
 
 }
 
-function find_user($email=""){
-    if(!$email){
+function find_user($email = ""){
+    if(!$email){//="" added 4/24
         set_alert('error','User Email is not set');
         die();
     }

@@ -9,7 +9,7 @@
 
 $errorCount = 0;
 
-if(!$_SESSION['loggedIn']){//undone today from !is_user_LoggedIn()
+if(!is_user_LoggedIn()){//undone today from !is_user_LoggedIn()
     $token = $_POST['token'] != "" ? $_POST['token'] :  $errorCount++;
     $_SESSION['token'] = $token;
 }
@@ -42,8 +42,8 @@ if($errorCount > 0){
                 $userExists = find_user($email);
     
                 if($userExists){
-        
-                        $userObject = find_user($email);
+                        //$currentUser = $email.".json";
+                        $userObject = find_user($email); 
 
                         $userObject->password = password_hash($password, PASSWORD_DEFAULT);
                         

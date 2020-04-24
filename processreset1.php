@@ -55,12 +55,12 @@ if($errorCount > 0){
 
             if($_SESSION['loggedIn']){
                 $checkToken = true;
-                echo "got here";
+                
             }else{
                 $checkToken = $tokenFromDB == $token;
-                echo "here too";
+                
             }
-                die();
+               
 
             if($checkToken){
                 $allUsers = scandir("db/users/"); 

@@ -8,7 +8,7 @@ if(!isset($_SESSION['loggedIn'])){
 
 <div class="container">
     <div class="row col-6"> 
-        <h3>Dashboard for interns</h3>
+        <h3>Dashboard for Representatives</h3>
     </div>
     <div class="row col-6">
         <p><strong>Welcome to your dashboard: <?php echo $_SESSION ["fullname"]; ?>, you are logged in with user ID: <?php echo $_SESSION['loggedIn'] ?> </strong></p>

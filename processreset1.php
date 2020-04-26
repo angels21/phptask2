@@ -8,8 +8,8 @@
 
 
 $errorCount = 0;
-
-if(!$_SESSION['loggedIn']){//undone today from !is_user_LoggedIn()
+//undone today from !is_user_LoggedIn()
+if(!$_SESSION['loggedIn']){
     $token = $_POST['token'] != "" ? $_POST['token'] :  $errorCount++;
     $_SESSION['token'] = $token;
 }
@@ -17,7 +17,6 @@ if(!$_SESSION['loggedIn']){//undone today from !is_user_LoggedIn()
 
 $email = $_POST['email'] != "" ? $_POST['email'] :  $errorCount++;
 $password = $_POST['password'] != "" ? $_POST['password'] :  $errorCount++;
-
 
 $_SESSION['email'] = $email;
 
@@ -35,46 +34,41 @@ if($errorCount > 0){
 
 
 }else{
-
+    
     $allUserTokens = scandir("db/token/");
     $countAllUserTokens = count($allUserTokens);
-
-
-    for ($counter = 0; $counter < $countAllUserTokens ; $counter++) {
-
-        $currentTokenFile = $allUserTokens[$counter];
     
+    for($counter = 0; $counter < $countAllUserTokens ; $counter++) {
         
+        $currentTokenFile = $allUserTokens[$counter];
         
         if($currentTokenFile == $email . ".json"){
-            //check for if token in current token file is same as $token
+        
+            
             $tokenContent = file_get_contents("db/token/".$currentTokenFile);
             
             $tokenObject = json_decode($tokenContent);
             $tokenFromDB = $tokenObject->token;
-
+            
             if($_SESSION['loggedIn']){
                 $checkToken = true;
-                
             }else{
                 $checkToken = $tokenFromDB == $token;
-                
             }
-               
 
             if($checkToken){
+                
                 $allUsers = scandir("db/users/"); 
                 $countAllUsers = count($allUsers);
-                
-            
-                for ($counter = 0; $counter < $countAllUsers ; $counter++) {
+                           
+                for($counter = 0; $counter < $countAllUsers ; $counter++) {
                     
                     $currentUser = $allUsers[$counter];
                 
                     if($currentUser == $email . ".json"){
                         
                         $userString = file_get_contents("db/users/".$currentUser);                    
-                        $userObject =json_decode($userString);
+                        $userObject = json_decode($userString);
 
                         $userObject->password = password_hash($password, PASSWORD_DEFAULT);
                         
@@ -89,11 +83,10 @@ if($errorCount > 0){
                         $headers = "From: no-reply@snh.org" . "\r\n" .
                         "CC:solo@snh.org";
 
-                        $try = mail($subject,$message,$email,$headers);
-                        
+                        $try = mail($subject,$message,$email,$headers);                        
                         
                         header("Location: login.php");
-                            die();
+                        die();
                     }
                 } 
             }    

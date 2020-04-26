@@ -6,27 +6,25 @@ if(!isset($_SESSION['loggedIn'])){
 }
 ?>
 
-<h3>Dashboard for Interns</h3>
-
-    LoggedIn User ID:  <?php echo $_SESSION['loggedIn'] ?>
-    Registered on:
-<?php echo $_SESSION["reg_date"]; ?>
-    Department:
-<?php echo $_SESSION["department"]; ?>
-    AccessLevel:
-<?php echo $_SESSION["designation"]; ?>
-    Date of Last login:
-<?php echo $_SESSION["login_date"]; ?>
-
-
-<Br>    
-
-<a href="paybill.php">Pay Bill</a> |
-<a href="bookappointment.php">Book Appointment</a> 
-        
- </Br>       
-        
-        
-   
-
+<div class="container">
+    <div class="row col-6"> 
+        <h3>Dashboard for interns</h3>
+    </div>
+    <div class="row col-6">
+        <p><strong>Welcome to your dashboard: <?php echo $_SESSION ["fullname"]; ?>, you are logged in with user ID: <?php echo $_SESSION['loggedIn'] ?> </strong></p>
+    </div>
+    <div class="row col-6">
+    <p> <p>You registered on: <?php echo $_SESSION["reg_date"]; ?>, with department: <?php echo $_SESSION["department"]; ?> </p></p>
+    </div>
+    <div class="row col-6">
+    <p> <p>Your designation access level is: <?php echo $_SESSION["designation"]; ?>, and your date of last login is: <?php echo $_SESSION["login_date"]; ?> </p></p>
+    </div>
+    <p>
+            <a href="paybill.php">Pay Bill</a>
+            <a href="bookappointment.php">Book Appointment</a> 
+    </p>
+    </div>
+</div>
 <?php include_once('lib/footer.php'); ?>
+ 
+

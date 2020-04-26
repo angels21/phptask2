@@ -49,7 +49,7 @@ if(!is_user_LoggedIn() && !is_token_set()){
         </p>
         <p>
             <label>Enter New Password</label><br />
-            <input type="password" name="password" placeholder="Password"  />
+            <input type="password" name="password" placeholder="Password" />
         </p>
         <p>
             <button type="submit">Reset Password</button>

@@ -12,9 +12,17 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
       if($userpatient->designation == "Representative Team (RT)" ){
         $patient .= "
           <tr>
+                <th></th>
+                <th></th>
                 <td>$userpatient->id</td>
+                <th></th>
+                <th></th>
                 <td>$userpatient->first_name . $userpatient->last_name</td>
+                <th></th>
+                <th></th>
                 <td>$userpatient->email</td>
+                <th></th>
+                <th></th>
                 <td>$userpatient->department</td>
             </tr>
             ";
@@ -24,14 +32,25 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
     }
 
 ?>
+<div class="container">
+    <div class="row col-6"> 
+        <table >
+                <thead>All Representative Team
 
-<table >
-                <thead>
                     <tr>
-                        <th>Representative ID</th>
-                        <th>Representative Name</th>
-                        <th>Representative Email</th>
-                        <th>Representative Department</th>
+                        <th></th>
+                        <th></th>
+                        <th>ID</th>
+                        <th></th>
+                        <th></th>
+                        <th>Name</th>   
+                        <th></th>
+                        <th></th>                   
+                        <th>Email</th> 
+                        <th></th> 
+                        <th></th>
+                        <th>Department</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -40,5 +59,6 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
                 echo $showpatient;
                ?>
                 </tbody>
-            </table>
-            
+        </table>
+    </div>
+</div>            

@@ -52,26 +52,22 @@ if($errorCount > 0){
                 $_SESSION ["department"] = $userObject -> department;
                 $_SESSION ["designation"] = $userObject -> designation;
                 $_SESSION ["reg_date"] = $userObject -> reg_date;
-                $_SESSION ["email"] = $userObject -> email; //added last day
+                $_SESSION ["email"] = $userObject -> email; //adLD
                 //adding user log record to database
                 file_put_contents("db/log/". $email . ".json", json_encode($logObject));
                 
                 //Page redirect based on Access Level
                 if ($_SESSION["email"] == "admin@yahoo.com"){
-                    header("Location: superadmin.php");
+                        header("Location: superadmin.php");
                     } elseif ($_SESSION["designation"] == "Interns"){
-                    header("Location: internsdashboard.php");
+                        header("Location: internsdashboard.php");
                     }else{
                         header("Location:dashboard.php");
-                        die();
-                   }
-            }
-               
 
-        }
-        
-    }
-    
+                    }
+            }   die();  
+        } 
+    }   
     $_SESSION["error"] = "Invalid Email or Password";
     header("Location: login.php");
     die();

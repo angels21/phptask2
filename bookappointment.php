@@ -8,124 +8,133 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
 
 //include_once('lib/header.php'); 
 ?>
-<h3> Appointment </h3>
-    <p><strong>Book appointment to resolve issue with your account or to have a session a representative</strong></p>
-    <p>All fields are required</p>
-<body>
-    <form method="POST" action="processbookappointment.php">
-    <p>
-        <?php
-            if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
-                echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";
-//unsets session message on page refresh
-                session_destroy();
-            }
-        ?>
-    </p>
+<div class="container">
+    <div class="row col-6"> 
+        <h3>Book an appointment</h3>
+    </div>
+    <div class="row col-6">
+        <p><strong>Book appointment to resolve issues with your account or to have a session with a representative</strong></p>
+    </div>
+    <div class="row col-6">
+    <p> <p>All fields are required</p></p>
+    </div>
+    <div class="row col-6">
 
-    </p>
-
-        <p>
-            Date of Appointment:<br/>
-            <input type ="date" name="dateFrom" value="<?php
-echo date('Y-m-d');?>" />
-            
-        </p>
-
-        <p>
-            <label>Time of Appointment</label><br />
-            <select name="time" >
-                <option value="">Select one</option>
-                <option
+            <form method="POST" action="processbookappointment.php">
+            <p>
                 <?php
-                if(isset($_SESSION['time']) && $_SESSION['time'] == "10:00AM"){
-                    echo "selected";
-                }
+                    if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
+                        echo "<span style='color:red'>" . $_SESSION['error'] . "</span>";
+        //unsets session message on page refresh
+                        session_destroy();
+                    }
                 ?>
-                >10:00AM</option>
-                <option
-                <?php
-                if(isset($_SESSION['time']) && $_SESSION['time'] == "12:00PM"){
-                    echo "selected";
-                }
-                ?>
-                >12:00PM</option>
-                <option
-                <?php
-                if(isset($_SESSION['time']) && $_SESSION['time'] == "2:00PM"){
-                    echo "selected";
-                }
-                ?>
-                >2:00PM</option>
-                <option
-                <?php
-                if(isset($_SESSION['time']) && $_SESSION['time'] == "4:00PM"){
-                    echo "selected";
-                }
-                ?>
-                >4:00PM</option>
-            </select>
+            </p>
 
-        </p>
+            </p>
 
-        <p>
-            <label>Nature of Appointment</label><br />
-            <select name="nature" >
-                <option value="">Select one</option>
-                <option
-                <?php
-                if(isset($_SESSION['nature']) && $_SESSION['nature'] == "Account"){
-                    echo "selected";
-                }
-                ?>
-                >Account</option>
-                <option
-                <?php
-                if(isset($_SESSION['nature']) && $_SESSION['nature'] == "Tutoring"){
-                    echo "selected";
-                }
-                ?>
-                >Tutoring</option>
-            </select>
+                <p>
+                    Date of Appointment:<br/>
+                    <input class="form-control" type ="date" name="dateFrom" value="<?php
+                        echo date('Y-m-d');?>" />
+                    
+                </p>
 
-        </p>
+                <p>
+                    <label>Time of Appointment</label><br />
+                    <select class="form-control" name="time" >
+                        <option value="">Select one</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['time']) && $_SESSION['time'] == "10:00AM"){
+                            echo "selected";
+                        }
+                        ?>
+                        >10:00AM</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['time']) && $_SESSION['time'] == "12:00PM"){
+                            echo "selected";
+                        }
+                        ?>
+                        >12:00PM</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['time']) && $_SESSION['time'] == "2:00PM"){
+                            echo "selected";
+                        }
+                        ?>
+                        >2:00PM</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['time']) && $_SESSION['time'] == "4:00PM"){
+                            echo "selected";
+                        }
+                        ?>
+                        >4:00PM</option>
+                    </select>
 
-        <p>
-            <label>Initial Complaint</label><br />
-            <input 
-            <?php
-                if(isset($_SESSION['icomplaint'])){
-                    echo "value=" .$_SESSION['icomplaint'];
-                }
-            ?>
-            type="text" name="icomplaint" placeholder="Initial Complaint" />
-        </p>
+                </p>
 
-        <p>
-            <label>Department to Visit</label><br />
-            <select name="department" >
-                <option value="">Select one</option>
-                <option
-                <?php
-                if(isset($_SESSION['department']) && $_SESSION['department'] == "Representative"){
-                    echo "selected";
-                }
-                ?>
-                >Representative </option>
-                <option
-                <?php
-                if(isset($_SESSION['department']) && $_SESSION['department'] == "Administration"){
-                    echo "selected";
-                }
-                ?>
-                >Administration</option>
-            </select>
+                <p>
+                    <label>Nature of Appointment</label><br />
+                    <select class="form-control" name="nature" >
+                        <option value="">Select one</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['nature']) && $_SESSION['nature'] == "Account"){
+                            echo "selected";
+                        }
+                        ?>
+                        >Account</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['nature']) && $_SESSION['nature'] == "Tutoring"){
+                            echo "selected";
+                        }
+                        ?>
+                        >Tutoring</option>
+                    </select>
 
-        </p>
-        
-        <p>
-            <button type="submit">Book Appointment</button>
-            </body>
-    </form>
+                </p>
 
+                <p>
+                    <label>Initial Complaint</label><br />
+                    <input 
+                    <?php
+                        if(isset($_SESSION['icomplaint'])){
+                            echo "value=" .$_SESSION['icomplaint'];
+                        }
+                    ?>
+                    type="text" class="form-control" name="icomplaint" placeholder="Initial Complaint" />
+                </p>
+
+                <p>
+                    <label>Department to Visit</label><br />
+                    <select class="form-control" name="department" >
+                        <option value="">Select one</option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['department']) && $_SESSION['department'] == "Representative"){
+                            echo "selected";
+                        }
+                        ?>
+                        >Representative </option>
+                        <option
+                        <?php
+                        if(isset($_SESSION['department']) && $_SESSION['department'] == "Administration"){
+                            echo "selected";
+                        }
+                        ?>
+                        >Administration</option>
+                    </select>
+
+                </p>
+                
+                <p>
+                    <button class="btn btn-sm btn-success" type="submit">Book appointment</button>
+                </p>
+            </form>
+    </div>
+</div>
 <?php include_once('lib/footer.php'); ?>

@@ -6,25 +6,23 @@ if(!isset($_SESSION['loggedIn'])){
 }
 ?>
 
-<h3>Dashboard for Representative Teams, View appointments booked by interns on this page</h3>
+<div class="container">
+    <div class="row col-6"> 
+        <h3>Dashboard for interns</h3>
+    </div>
+    <div class="row col-6">
+        <p><strong>Welcome to your dashboard: <?php echo $_SESSION ["fullname"]; ?>, you are logged in with user ID: <?php echo $_SESSION['loggedIn'] ?> </strong></p>
+    </div>
+    <div class="row col-6">
+    <p> <p>You registered on: <?php echo $_SESSION["reg_date"]; ?>, with department: <?php echo $_SESSION["department"]; ?> </p></p>
+    </div>
+    <div class="row col-6">
+    <p> <p>Your designation access level is: <?php echo $_SESSION["designation"]; ?>, and your date of last login is: <?php echo $_SESSION["login_date"]; ?> </p></p>
+    </div>
 
-    LoggedIn User ID:  <?php echo $_SESSION['loggedIn'] ?>, 
-    Welcome,
-<?php echo $_SESSION ["fullname"]; ?>, 
-    Registered on:
-<?php echo $_SESSION["reg_date"]; ?>, 
-Department:
-<?php echo $_SESSION["department"]; ?>, 
-    You are logged in as:
-(<?php echo $_SESSION["designation"]; ?>), 
-    Date of Last login:
-<?php echo $_SESSION["login_date"]; ?>, 
-<Br>
-<Br>    
-
-<a href="allappointments.php">View all appointments</a> 
-                
-        
- </Br>       
-
+    <Br>    
+        <a href="allappointments.php">View all appointments</a>        
+    </Br>       
+    </div>
+</div>
 <?php include_once('lib/footer.php'); ?>

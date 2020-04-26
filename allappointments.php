@@ -33,8 +33,9 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
 }
 
 ?>
-
-<table >
+<div class="container">
+    <div class="row col-6"> 
+            <table >
                 <thead>
                     <tr>
                         <th>Interns ID</th>
@@ -50,5 +51,7 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
                 $showpatient = viewPatients();
                 echo $showpatient;
                ?>
-                </tbody>
+              </tbody>
             </table>
+    </div>
+</div> 

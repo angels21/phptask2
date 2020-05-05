@@ -19,10 +19,16 @@ if(!isset($_SESSION['loggedIn'])){
     <div class="row col-6">
     <p> <p>Your designation access level is: <?php echo $_SESSION["designation"]; ?>, and your date of last login is: <?php echo $_SESSION["login_date"]; ?> </p></p>
     </div>
+    
     <p>
-            <a href="paybill.php">Pay Bill</a>
-            <a href="bookappointment.php">Book Appointment</a> 
+        <style>
+        .btnPad {margin-left:50px; margin-right:50px.}
+        </style>
+            <a href="paybill.php">Pay bill</a> 
+            <span class="btnPad"><a href="bookappointment.php">  Book appointment</a></span> 
+            <span class="btnPad"><a href="transactions.php">Transaction history</a></span> 
     </p>
+        
     </div>
 </div>
 <?php include_once('lib/footer.php'); ?>

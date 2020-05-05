@@ -37,8 +37,8 @@ if($errorCount > 0){
     header("Location: register.php");
 
 }else{
-
-    
+    $allUsers = scandir("db/users/");
+    $countAllUsers = count($allUsers);
     $newUserId = ($countAllUsers-1);
     $userObject = [
 

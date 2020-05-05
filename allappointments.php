@@ -35,7 +35,7 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
 
 ?>
 <div class="container">
-    <div class="row col-6"> 
+    <div class="row col-10"> 
             <table >
                 <thead>All appointments:
                     <tr>

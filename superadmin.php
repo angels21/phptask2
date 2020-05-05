@@ -66,7 +66,7 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
             </p>
             <p>
                 <label>Password</label><br />
-                <input type="password" name="password" placeholder="Password"  />
+                <input type="password" class="form-control" name="password" placeholder="Password"  />
             </p>
             <p>
                 <label>Gender</label><br />
@@ -125,13 +125,20 @@ if(isset($SESSION['loggedIn']) && !empty($_SESSION['loggedIn'])){
                 <button class="btn btn-sm btn-success" type="submit">Register</button>
             </p>
 
-                <Br>    
+            <p>    
+                    <center><a href="allpayments.php">View all Payments</a></center>
+            </p>     
 
-                    <a href="allinterns.php">View all interns</a>
-                    <a href="allrepresentatives.php">View all representatives</a> 
-                </Br>       
+            <p>    
+                    <style>
+                    .btnPad {margin-left:50px; margin-right:50px.}
+                    </style>
+
+                    <a href="allinterns.php">View all Interns</a>
+                    <span class="btnPad"><a href="allrepresentatives.php">View all Representatives</a></span>
+            </p>       
                 
 
         </form>
-
+</div>
 <?php include_once('lib/footer.php'); ?>

@@ -20,9 +20,13 @@ if(!isset($_SESSION['loggedIn'])){
     <p> <p>Your designation access level is: <?php echo $_SESSION["designation"]; ?>, and your date of last login is: <?php echo $_SESSION["login_date"]; ?> </p></p>
     </div>
 
-    <Br>    
-        <a href="allappointments.php">View all appointments</a>        
-    </Br>       
+    <p> 
+        <style>
+        .btnPad {margin-left:120px; margin-right:0.}
+        </style>
+        <a href="allappointments.php">View all appointments</a> 
+        <span class="btnPad"><a href="allpayments.php">View all payments</a></span>       
+    </p>       
     </div>
 </div>
 <?php include_once('lib/footer.php'); ?>

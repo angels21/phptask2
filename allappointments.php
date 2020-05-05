@@ -9,9 +9,9 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
     $currentpatient = $allpatient[$counter]; 
       $patient_record = file_get_contents("db/appointments/". $currentpatient);
       $userpatient = json_decode($patient_record);
-      if($countallpatient >= 3 ){
-        $patient .= "
-          <tr>
+      if($countallpatient >= 4 ){
+            $patient .= "
+            <tr>
                 <td>$userpatient->id</td>
                 <td>$userpatient->appdate</td>
                 <td>$userpatient->time</td>
@@ -20,11 +20,12 @@ for ($counter = 2; $counter < $countallpatient; $counter++ ){
                 <td>$userpatient->department</td>
             </tr>
             ";   
-        }elseif($countallpatient < 3 ){
+  
+        }elseif($countallpatient < 4 ){
             $patient .= "
             <tr>
                 You have no pending appointments!
-                
+            
             </tr>
             ";          
         }

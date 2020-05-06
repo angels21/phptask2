@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
             const txRef = ''+Math.floor((Math.random() * 1000000000) + 1); //Generate a random id for the transaction reference
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
-            const amount = document.getElementById('amount').value;
+            const amt = document.getElementById('amount').value;
 
     
         
@@ -16,22 +16,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
             getpaidSetup({
                 PBFPubKey: API_publicKey,
                 customer_email: email,
-                amount: amount,
+                amount: amt,
                 customer_phone: phone,
                 currency: "NGN",
                 txref: txRef,
                 
                 onclose: function() {},
                 callback: function(response) {
-                    flw_ref = response.tx.flwRef; // collect txRef returned and pass to a                  server page to complete status check.
+                    txref = response.tx.txRef; // collect txRef returned and pass to a                  server page to complete status check.
                     console.log("Your payment was successful", response);
                     if (
                         response.tx.chargeResponseCode == "00" ||
                         response.tx.chargeResponseCode == "0"
                     ) {
-                       // window.location.href ="paysuccess.php?success=true";
+                        window.location = "http://localhost/sng-v3/status.php?txref="+txref+"?amount="+amount;
                     } else {
-                       // window.location.href ="payfailure.php?success=false";
+                        window.location = "http://localhost/sng-v3/status.php?txref="+txref+"?amount="+amount;
                     }
 
                     // use this to close the modal immediately after payment.
